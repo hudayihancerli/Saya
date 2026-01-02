@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Saya.Api/Saya.Api.csproj" />
+    <Project Path="src/Saya.Common/Saya.Common.csproj" />
+    <Project Path="src/Saya.Modules.Catalog/Saya.Modules.Catalog.csproj" />
+    <Project Path="src/Saya.Modules.Identity/Saya.Modules.Identity.csproj" />
+    <Project Path="src/Saya.Modules.Ordering/Saya.Modules.Ordering.csproj" />
+    <Project Path="src/Saya.Vault/Saya.Vault.csproj" />
+  </Folder>
+</Solution>
