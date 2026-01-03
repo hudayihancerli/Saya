@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Saya.Vault.Models;
 using Saya.Vault.Services;
@@ -38,13 +40,16 @@ public static class VaultEndpoints
             string key,
             HttpContext context,
             [FromServices] CryptoFactory factory,
-            [FromServices] IVaultRepository repository
+            [FromServices] IVaultRepository repository,
+            [FromServices] ApiToken correctToken
         ) =>
         {
-            if (context.Request.Headers["X-Vault-Token"] != "SAYA_INTERNAL_ACCESS")
+           
+            if (!IsTokenValid(context, correctToken.Value))
             {
                 return Results.Unauthorized();
             }
+
             var item = repository.Get(key);
             if (item is null)
             {
@@ -77,5 +82,19 @@ public static class VaultEndpoints
                 });
             }
         });
+
+    }
+
+    private static bool IsTokenValid(HttpContext context, string correctToken)
+    {
+        if (!context.Request.Headers.TryGetValue("X-Vault-Token", out var receivedToken))
+        {
+            return false;
+        }
+
+        var receivedBytes = Encoding.UTF8.GetBytes(receivedToken.ToString());
+        var correctBytes = Encoding.UTF8.GetBytes(correctToken);
+
+        return CryptographicOperations.FixedTimeEquals(receivedBytes, correctBytes);
     }
 }

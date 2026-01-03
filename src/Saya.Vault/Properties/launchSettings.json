@@ -9,7 +9,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "SAYA_MASTER_KEY": "12345678901234567890123456789012",
-        "SAYA_STORAGE_PATH": "my_local_secrets.bindb"
+        "SAYA_STORAGE_PATH": "my_local_secrets.bindb",
+        "SAYA_API_TOKEN": "SAYA_INTERNAL_ACCESS_DEV_KEY"
       }
     }
   }
