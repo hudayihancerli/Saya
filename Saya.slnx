@@ -6,5 +6,6 @@
     <Project Path="src/Saya.Modules.Identity/Saya.Modules.Identity.csproj" />
     <Project Path="src/Saya.Modules.Ordering/Saya.Modules.Ordering.csproj" />
     <Project Path="src/Saya.Vault/Saya.Vault.csproj" />
+    <Project Path="src/Saya.Vault.Tests/Saya.Vault.Tests.csproj" />
   </Folder>
 </Solution>

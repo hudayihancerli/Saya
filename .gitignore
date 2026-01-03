@@ -2,3 +2,7 @@
 bin/
 obj/
 appsettings.json
+Saya.sln.DotSettings.user
+*.bindb
+*.dat
+
